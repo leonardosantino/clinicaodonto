@@ -59,8 +59,9 @@ public class PacienteDAO {
             insert.setString(3, rg);
             insert.setString(4, endereco);
             insert.setString(5, dataDeAlta);
-            insert.executeUpdate();
-            System.out.println("Adicionado com sucesso");
+
+            Integer rowsAffect = insert.executeUpdate();
+            System.out.println("Adicionado com sucesso - " + "Nome:  " + nome + " Sobrenome:  " + sobrenome + " Linha: " + rowsAffect);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -74,8 +75,9 @@ public class PacienteDAO {
             PreparedStatement delete = connection.prepareStatement(" DELETE FROM paciente WHERE id = ?");
 
             delete.setInt(1, id);
-            delete.execute();
-            System.out.println("Deletado com sucesso");
+
+            Integer rowsAffect = delete.executeUpdate();
+            System.out.println("Deletado com sucesso -" + "ID: " + id + " Linha: " + rowsAffect);
         }catch (Exception e){
             e.printStackTrace();
         }
