@@ -9,12 +9,11 @@ public class Main {
         PacienteDAO paciente = new PacienteDAO();
 
         List<Paciente> pacientesList = paciente.selectAll();
-        for (Paciente p : pacientesList) {
-            System.out.println(p);
-        }
 
         Paciente pacienteGetById4 = paciente.getById(3);
 
-        Paciente insert = paciente.insert("Ana", "Lopes", " 147852369","Rua 12","2021-11-05");
+        Paciente pacienteInsert = paciente.insert("Ana", "Lopes", " 147852369","Rua 12","2021-11-05");
+
+        paciente.delete(4);
     }
 }
