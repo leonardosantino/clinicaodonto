@@ -14,6 +14,6 @@ public class Main {
 
         Paciente pacienteInsert = paciente.insert("Miguel", "Santos", " 852357984","Rua Dos Carvalhos","2021-09-01");
 
-        paciente.delete(6);
+        paciente.delete(9);
     }
 }

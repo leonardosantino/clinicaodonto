@@ -77,7 +77,22 @@ public class PacienteDAO {
             delete.setInt(1, id);
 
             Integer rowsAffect = delete.executeUpdate();
-            System.out.println("Deletado com sucesso -" + "ID: " + id + " Linha: " + rowsAffect);
+            System.out.println("Deletado com sucesso -" + "ID: " + id + " Linhas afetadas: " + rowsAffect);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void update(Integer id){
+
+        try {
+            Connection connection = ConnectionJDBC.getConnection();
+            PreparedStatement delete = connection.prepareStatement(" DELETE FROM paciente WHERE id = ?");
+
+            delete.setInt(1, id);
+
+            Integer rowsAffect = delete.executeUpdate();
+            System.out.println("Deletado com sucesso -" + "ID: " + id + " Linhas Afetadas: " + rowsAffect);
         }catch (Exception e){
             e.printStackTrace();
         }
