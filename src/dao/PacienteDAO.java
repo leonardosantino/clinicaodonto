@@ -4,12 +4,15 @@ import model.Paciente;
 import service.ConnectionJDBC;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PacienteDAO {
+
+
 
     public List<Paciente> selectAll(){
 
@@ -48,6 +51,31 @@ public class PacienteDAO {
             if (resultSet.next()){
                 paciente = new Paciente(resultSet.getInt("id"),resultSet.getString("nome"), resultSet.getString("sobrenome"), resultSet.getString("rg"), resultSet.getString("endereco"), resultSet.getDate("dataDeAlta"));
             }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return paciente;
+    }
+
+    public Paciente insert(String nome, String sobrenome, String rg, String endereco, String dataDeAlta){
+
+        Paciente paciente = null;
+
+        try {
+            Connection connection = ConnectionJDBC.getConnection();
+            PreparedStatement insert = connection.prepareStatement("INSERT INTO paciente (nome, sobrenome, rg , endereco , dataDeAlta) VALUES (?, ?, ?, ?, ?)");
+
+            insert.setString(1, nome);
+            insert.setString(2, sobrenome);
+            insert.setString(3, rg);
+            insert.setString(4, endereco);
+            insert.setString(5, dataDeAlta);
+
+
+            Integer resultSet = insert.executeUpdate();
+
+            System.out.println("Adicionado com sucesso");
         }catch (Exception e){
             e.printStackTrace();
         }
