@@ -83,16 +83,62 @@ public class PacienteDAO {
         }
     }
 
-    public void update(Integer id){
+    public void updateName(Integer id, String nome){
 
         try {
             Connection connection = ConnectionJDBC.getConnection();
-            PreparedStatement delete = connection.prepareStatement(" DELETE FROM paciente WHERE id = ?");
+            PreparedStatement update = connection.prepareStatement("UPDATE paciente SET nome=? WHERE id=? ");
 
-            delete.setInt(1, id);
+            update.setString(1, nome);
+            update.setInt(2, id);
 
-            Integer rowsAffect = delete.executeUpdate();
-            System.out.println("Deletado com sucesso -" + "ID: " + id + " Linhas Afetadas: " + rowsAffect);
+            Integer rowsAffect = update.executeUpdate();
+            System.out.println("Atualizado com sucesso - " + "ID: " + id + " Nome: " + nome + " Linhas Afetadas: " + rowsAffect);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void updateSobrenome(Integer id, String sobrenome){
+
+        try {
+            Connection connection = ConnectionJDBC.getConnection();
+            PreparedStatement update = connection.prepareStatement("UPDATE paciente SET sobrenome=? WHERE id=? ");
+
+            update.setString(1, sobrenome);
+            update.setInt(2, id);
+
+            Integer rowsAffect = update.executeUpdate();
+            System.out.println("Atualizado com sucesso - " + "ID: " + id + " Sobrenome: " + sobrenome + " Linhas Afetadas: " + rowsAffect);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void updateRg(Integer id, String rg){
+
+        try {
+            Connection connection = ConnectionJDBC.getConnection();
+            PreparedStatement update = connection.prepareStatement("UPDATE paciente SET rg=? WHERE id=? ");
+
+            update.setString(1, rg);
+            update.setInt(2, id);
+
+            Integer rowsAffect = update.executeUpdate();
+            System.out.println("Atualizado com sucesso - " + "ID: " + id + " RG: " + rg + " Linhas Afetadas: " + rowsAffect);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void updateDataDeAlta(Integer id, String dataDeAlta){
+
+        try {
+            Connection connection = ConnectionJDBC.getConnection();
+            PreparedStatement update = connection.prepareStatement("UPDATE paciente SET dataDeAlta=? WHERE id=? ");
+
+            update.setString(1, dataDeAlta);
+            update.setInt(2, id);
+
+            Integer rowsAffect = update.executeUpdate();
+            System.out.println("Atualizado com sucesso - " + "ID: " + id + " Data de Alta: " + dataDeAlta + " Linhas Afetadas: " + rowsAffect);
         }catch (Exception e){
             e.printStackTrace();
         }
