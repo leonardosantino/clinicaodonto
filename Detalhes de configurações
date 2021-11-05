@@ -1,0 +1,26 @@
+Database H2
+
+JDBC URL for H2 Console:
+jdbc:h2:~/clinicaodonto
+
+user: clinica  password: odonto
+
+CREATE TABLE IF NOT EXISTS paciente (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR NOT NULL,
+    sobrenome VARCHAR NOT NULL,
+    rg VARCHAR NOT NULL,
+    endereco VARCHAR NOT NULL,
+    dataDeAlta DATE NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS dentista (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR NOT NULL,
+    sobrenome VARCHAR NOT NULL,
+    matricula VARCHAR NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO paciente (nome, sobrenome, rg , endereco , dataDeAlta) VALUES ('Leonardo' , 'Santino' ,'123456789' , 'Rua Carvalho', '2021-11-04')
