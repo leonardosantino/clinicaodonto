@@ -12,8 +12,8 @@ public class Main {
 
         Paciente pacienteGetById4 = paciente.getById(3);
 
-        Paciente pacienteInsert = paciente.insert("Ana", "Lopes", " 147852369","Rua 12","2021-11-05");
+        Paciente pacienteInsert = paciente.insert("Carolina", "Lima", " 852357984","Rua Dos Carvalhos","2021-09-01");
 
-        paciente.delete(4);
+        paciente.delete(1);
     }
 }
