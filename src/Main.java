@@ -33,10 +33,18 @@ public class Main {
         paciente.getById(3);
 
         // Selecionar todos os pacientes
+        paciente.selectAll();
 
-        endereco.updateRuaByIdPaciente(1, "Atualizada");
-        endereco.updateNumeroByIdPaciente(1, "atualizado");
-        endereco.updateCidadeByIdPaciente(1, "Atualizada");
-        endereco.updateEstadoByIdPaciente(1, "Atualizado");
+        // atualizar Dados por ID paciente
+        paciente.updateNameById(1,"nome Atualizado");
+        paciente.updateSobrenomeById(1,"Sobrenome Atualizado");
+        paciente.updateRgById(1,"951478236");
+        paciente.updateDataDeCadastroById(1 ,"2021-01-01");
+
+        // atualizar endereco por ID paciente
+        endereco.updateRuaByIdPaciente(1, "Rua Atualizada");
+        endereco.updateNumeroByIdPaciente(1, "Numero Atualizado");
+        endereco.updateCidadeByIdPaciente(1, "Cidade Atualizada");
+        endereco.updateEstadoByIdPaciente(1, "Estado Atualizado");
     }
 }

@@ -111,7 +111,7 @@ public class PacienteDAO {
 
         try {
             Connection connection = ConnectionJDBC.getConnection();
-            PreparedStatement update = connection.prepareStatement("UPDATE pacientes SET sobrenome=? WHERE id=? ");
+            PreparedStatement update = connection.prepareStatement("UPDATE pacientes SET sobrenome=? WHERE id_paciente=? ");
 
             update.setString(1, sobrenome);
             update.setInt(2, id);
@@ -130,7 +130,7 @@ public class PacienteDAO {
 
         try {
             Connection connection = ConnectionJDBC.getConnection();
-            PreparedStatement update = connection.prepareStatement("UPDATE pacientes SET rg=? WHERE id=? ");
+            PreparedStatement update = connection.prepareStatement("UPDATE pacientes SET rg=? WHERE id_paciente=? ");
 
             update.setString(1, rg);
             update.setInt(2, id);
@@ -149,7 +149,7 @@ public class PacienteDAO {
 
         try {
             Connection connection = ConnectionJDBC.getConnection();
-            PreparedStatement update = connection.prepareStatement("UPDATE pacientes SET datadecadastro=? WHERE id=? ");
+            PreparedStatement update = connection.prepareStatement("UPDATE pacientes SET datadecadastro=? WHERE id_paciente=? ");
 
             update.setString(1, datadecadastro);
             update.setInt(2, id);
