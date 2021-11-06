@@ -7,16 +7,15 @@ public class Paciente {
     private String nome;
     private String sobrenome;
     private String rg;
+    private Date dataDeCadastro;
     private String endereco;
-    private Date dataDeAlta;
 
-    public Paciente(Integer id, String nome, String sobrenome, String rg, String endereco, Date dataDeAlta) {
+    public Paciente(Integer id, String nome, String sobrenome, String rg, Date dataDeCadastro) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.rg = rg;
-        this.endereco = endereco;
-        this.dataDeAlta = dataDeAlta;
+        this.dataDeCadastro = dataDeCadastro;
     }
 
     public Integer getId() {
@@ -51,6 +50,14 @@ public class Paciente {
         this.rg = rg;
     }
 
+    public Date getDataDeCadastro() {
+        return dataDeCadastro;
+    }
+
+    public void setDataDeCadastro(Date dataDeCadastro) {
+        this.dataDeCadastro = dataDeCadastro;
+    }
+
     public String getEndereco() {
         return endereco;
     }
@@ -58,12 +65,6 @@ public class Paciente {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-
-    public Date getDataDeAlta() {
-        return dataDeAlta;
-    }
-
-    public void setDataDeAlta(Date dataDeAlta) {
-        this.dataDeAlta = dataDeAlta;
-    }
 }
+
+

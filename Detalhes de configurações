@@ -5,22 +5,56 @@ jdbc:h2:~/clinicaodonto
 
 user: clinica  password: odonto
 
-CREATE TABLE IF NOT EXISTS paciente (
-    id INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS pacientes (
+    id_paciente INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR NOT NULL,
     sobrenome VARCHAR NOT NULL,
     rg VARCHAR NOT NULL,
-    endereco VARCHAR NOT NULL,
-    dataDeAlta DATE NOT NULL,
-    PRIMARY KEY (id)
+    datadecadastro DATE NOT NULL,
+    PRIMARY KEY (id_paciente)
 );
 
-CREATE TABLE IF NOT EXISTS dentista (
+CREATE TABLE IF NOT EXISTS enderecos (
+    id_endereco INT NOT NULL AUTO_INCREMENT,
+    rua VARCHAR NOT NULL,
+    numero VARCHAR NOT NULL,
+    cidade VARCHAR NOT NULL,
+    estado VARCHAR NOT NULL,
+    fk_paciente_endereco INT NOT NULL,
+    PRIMARY KEY (id_endereco),
+    CONSTRAINT fk_paciente_endereco FOREIGN KEY (fk_paciente_endereco)
+    REFERENCES pacientes(id_paciente)
+);
+
+INSERT INTO pacientes (nome, sobrenome, rg, datadecadastro) VALUES ('Elliot', 'Alderson', '123456789', '2021-11-06')
+INSERT INTO enderecos (rua, numero, cidade, estado,fk_paciente_endereco) VALUES ('Oliveiras', '23', 'Caruaru', 'PE', 1)
+
+SELECT * FROM pacientes INNER JOIN enderecos ON pacientes.id_paciente = enderecos.fk_paciente_endereco
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS dentistas (
     id INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR NOT NULL,
     sobrenome VARCHAR NOT NULL,
     matricula VARCHAR NOT NULL,
-    PRIMARY KEY (id)
+    id_endereco int,
+    PRIMARY KEY (id),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (id_endereco)
+    REFERENCES Persons(PersonID)
 );
-
-INSERT INTO paciente (nome, sobrenome, rg , endereco , dataDeAlta) VALUES ('Leonardo' , 'Santino' ,'123456789' , 'Rua Carvalho', '2021-11-04')

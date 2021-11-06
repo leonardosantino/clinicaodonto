@@ -1,29 +1,42 @@
+import dao.EnderecoDAO;
 import dao.PacienteDAO;
 import model.Paciente;
-
-import java.util.List;
+import service.CreateTable;
 
 public class Main {
     public static void main(String[] args) {
-        // Realizar operações query com a Instancia de PacienteDAO
+
+        // CRIAR TABELA Se não existir pacientes e enderecos
+        CreateTable.createTable();
+
+        // Instancias de acesso ao banco de dados
         PacienteDAO paciente = new PacienteDAO();
+        EnderecoDAO endereco = new EnderecoDAO();
 
-        // Selecionar toda a tabela de pacientes
-        List<Paciente> pacientesList = paciente.selectAll();
+        // Adicionar pacientes e seus endereços
+        paciente.insert("Ana", "Lima", "123456789", "2021-11-06");
+        endereco.setEnderecoByIdPaciente(1,"Carvalhos", "2", "São Paulo", "SP");
 
-        // Selecionar paciente por ID
-        Paciente pacienteGetById2 = paciente.getById(2);
+        paciente.insert("Maria", "Tavares", "321654987", "2021-11-05");
+        endereco.setEnderecoByIdPaciente(2,"Oliveiras", "520", "Barueri", "SP");
 
-        // Inserir paciente
-        // Paciente pacienteInsert = paciente.insert("Miguel", "Santos", " 852357984","Rua Dos Carvalhos","2021-09-01");
+        paciente.insert("João", "Ferreira", "456789123", "2021-11-01");
+        endereco.setEnderecoByIdPaciente(3,"Jaguaré", "10", "Osasco", "SP");
 
-        // Deletar por ID
-        // paciente.delete(9);
+        // Pesquisa banco de dados
+        paciente.getById(1);
+        paciente.getById(2);
+        paciente.getById(3);
 
-        // Atualizações por ID
-        paciente.updateName(2, "Elliot");
-        paciente.updateSobrenome(2, "Alderson");
-        paciente.updateRg(2, "514873652");
-        paciente.updateDataDeAlta(2,"2021-08-26");
+        // Exluir paciente
+        paciente.deleteById(3);
+        paciente.getById(3);
+
+        // Selecionar todos os pacientes
+
+        endereco.updateRuaByIdPaciente(1, "Atualizada");
+        endereco.updateNumeroByIdPaciente(1, "atualizado");
+        endereco.updateCidadeByIdPaciente(1, "Atualizada");
+        endereco.updateEstadoByIdPaciente(1, "Atualizado");
     }
 }
