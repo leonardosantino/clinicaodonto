@@ -1,6 +1,5 @@
 import dao.EnderecoDAO;
 import dao.PacienteDAO;
-import model.Paciente;
 import service.CreateTable;
 
 public class Main {
@@ -36,15 +35,16 @@ public class Main {
         paciente.selectAll();
 
         // atualizar Dados por ID paciente
-        paciente.updateNameById(1,"nome Atualizado");
-        paciente.updateSobrenomeById(1,"Sobrenome Atualizado");
-        paciente.updateRgById(1,"951478236");
+        paciente.updateNameById(1,"Nome atualizado");
+        paciente.updateSobrenomeById(1,"Sobrenome atualizado");
+        paciente.updateRgById(1,"RG atualizado");
         paciente.updateDataDeCadastroById(1 ,"2021-01-01");
 
         // atualizar endereco por ID paciente
-        endereco.updateRuaByIdPaciente(1, "Rua Atualizada");
-        endereco.updateNumeroByIdPaciente(1, "Numero Atualizado");
-        endereco.updateCidadeByIdPaciente(1, "Cidade Atualizada");
-        endereco.updateEstadoByIdPaciente(1, "Estado Atualizado");
+        endereco.updateRuaByIdPaciente(1, "Rua atualizada");
+        endereco.updateNumeroByIdPaciente(1, "Numero atualizado");
+        endereco.updateCidadeByIdPaciente(1, "Cidade atualizada");
+        endereco.updateEstadoByIdPaciente(1, "Estado atualizado");
+
     }
 }

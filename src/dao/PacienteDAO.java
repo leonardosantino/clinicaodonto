@@ -12,6 +12,7 @@ public class PacienteDAO {
 
     public void insert(String nome, String sobrenome, String rg, String datadecadastro){
 
+        Paciente paciente = null;
         try {
             Connection connection = ConnectionJDBC.getConnection();
             PreparedStatement insert = connection.prepareStatement("INSERT INTO pacientes (nome, sobrenome, rg, datadecadastro) VALUES (?, ?, ?, ?)");
@@ -22,7 +23,11 @@ public class PacienteDAO {
             insert.setString(4, datadecadastro);
 
             Integer rowsAffect = insert.executeUpdate();
-            System.out.println("Paciente adicionado" + " | Nome: " + nome + " | Sobrenome: " + sobrenome + " | RG: " + rg + " | Data de Cadastro: " + datadecadastro + " | Linhas afetadas: " + rowsAffect);
+            if (rowsAffect.equals(0)){
+                System.out.println("Erro ao adicionar paciente");
+            } else {
+                System.out.println("Paciente adicionado" + " | Nome: " + nome + " | Sobrenome: " + sobrenome + " | RG: " + rg + " | Data de Cadastro: " + datadecadastro + " | Linhas afetadas: " + rowsAffect);
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -50,7 +55,7 @@ public class PacienteDAO {
 
     public void getById(Integer id){
 
-        Paciente paciente;
+        Paciente paciente = null;
         try {
             Connection connection = ConnectionJDBC.getConnection();
             PreparedStatement getById = connection.prepareStatement("SELECT * FROM pacientes WHERE id_paciente = ?");
