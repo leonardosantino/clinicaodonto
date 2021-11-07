@@ -1,15 +1,17 @@
-package dao;
+package dao.impl;
 
+import dao.IDAOEndereco;
 import model.Endereco;
-import service.ConnectionJDBC;
+import dao.config.ConnectionJDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class EnderecoDAO {
+public class EnderecoDAO implements IDAOEndereco<Endereco> {
 
-    public void setEnderecoByIdPaciente(Integer idPaciente ,String rua, String numero, String cidade, String estado){
+    @Override
+    public void setEnderecoByIdPaciente(Integer idPaciente , String rua, String numero, String cidade, String estado){
 
         try {
             Connection connection = ConnectionJDBC.getConnection();
@@ -27,6 +29,7 @@ public class EnderecoDAO {
             e.printStackTrace();
         }
     }
+    @Override
     public void getEnderecoByIdPaciente(Integer idPaciente){
 
         Endereco endereco;
@@ -46,6 +49,7 @@ public class EnderecoDAO {
             e.printStackTrace();
         }
     }
+    @Override
     public void updateRuaByIdPaciente(Integer idPaciente, String rua){
 
         try {
@@ -65,6 +69,7 @@ public class EnderecoDAO {
             e.printStackTrace();
         }
     }
+    @Override
     public void updateNumeroByIdPaciente(Integer idPaciente, String rua){
 
         try {
@@ -85,6 +90,7 @@ public class EnderecoDAO {
         }
     }
 
+    @Override
     public void updateCidadeByIdPaciente(Integer idPaciente, String rua){
 
         try {
@@ -105,6 +111,7 @@ public class EnderecoDAO {
         }
     }
 
+    @Override
     public void updateEstadoByIdPaciente(Integer idPaciente, String rua){
 
         try {

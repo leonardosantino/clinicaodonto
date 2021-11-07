@@ -1,8 +1,7 @@
-package service;
+package dao.config;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 public  class CreateTable {
 

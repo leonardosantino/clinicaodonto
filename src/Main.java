@@ -1,6 +1,6 @@
-import dao.EnderecoDAO;
-import dao.PacienteDAO;
-import service.CreateTable;
+import dao.impl.EnderecoDAO;
+import dao.impl.PacienteDAO;
+import dao.config.CreateTable;
 
 public class Main {
     public static void main(String[] args) {

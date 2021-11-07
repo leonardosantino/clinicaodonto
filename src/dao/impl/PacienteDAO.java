@@ -1,15 +1,17 @@
-package dao;
+package dao.impl;
 
+import dao.IDAO;
 import model.Endereco;
 import model.Paciente;
-import service.ConnectionJDBC;
+import dao.config.ConnectionJDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class PacienteDAO {
+public class PacienteDAO implements IDAO<Paciente> {
 
+    @Override
     public void insert(String nome, String sobrenome, String rg, String datadecadastro){
 
         Paciente paciente = null;
@@ -33,6 +35,7 @@ public class PacienteDAO {
         }
     }
 
+    @Override
     public void selectAll(){
 
         Paciente paciente;
@@ -53,9 +56,10 @@ public class PacienteDAO {
         }
     }
 
+    @Override
     public void getById(Integer id){
 
-        Paciente paciente = null;
+        Paciente paciente;
         try {
             Connection connection = ConnectionJDBC.getConnection();
             PreparedStatement getById = connection.prepareStatement("SELECT * FROM pacientes WHERE id_paciente = ?");
@@ -73,6 +77,7 @@ public class PacienteDAO {
         }
     }
 
+    @Override
     public void deleteById(Integer id){
 
         try {
@@ -93,6 +98,7 @@ public class PacienteDAO {
         }
     }
 
+    @Override
     public void updateNameById(Integer id, String nome){
 
         try {
@@ -112,6 +118,7 @@ public class PacienteDAO {
             e.printStackTrace();
         }
     }
+    @Override
     public void updateSobrenomeById(Integer id, String sobrenome){
 
         try {
@@ -131,6 +138,7 @@ public class PacienteDAO {
             e.printStackTrace();
         }
     }
+    @Override
     public void updateRgById(Integer id, String rg){
 
         try {
@@ -150,6 +158,7 @@ public class PacienteDAO {
             e.printStackTrace();
         }
     }
+    @Override
     public void updateDataDeCadastroById(Integer id, String datadecadastro){
 
         try {

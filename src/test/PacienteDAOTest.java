@@ -1,11 +1,11 @@
 package test;
 
-import dao.PacienteDAO;
+import dao.impl.PacienteDAO;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.ConnectionJDBC;
-import service.CreateTable;
+import dao.config.ConnectionJDBC;
+import dao.config.CreateTable;
 
 import java.sql.*;
 
