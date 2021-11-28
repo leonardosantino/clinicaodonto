@@ -7,8 +7,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity @Setter @Getter
-@Table(name = "dentist")
+@Entity
+@Table(name = "dentist") @Setter @Getter
 public class DentistModel {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +25,5 @@ public class DentistModel {
 
     // Pacients list
     @OneToMany(mappedBy = "dentist") @JsonIgnoreProperties({"dentist", "addresses"})
-    private List<PatientModel> pacients;
+    private List<PatientModel> patients;
 }

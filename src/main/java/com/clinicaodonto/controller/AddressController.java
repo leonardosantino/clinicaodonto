@@ -1,7 +1,7 @@
 package com.clinicaodonto.controller;
 
 import com.clinicaodonto.model.AddressModel;
-import com.clinicaodonto.repository.AddressRepository;
+import com.clinicaodonto.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,15 +12,15 @@ import java.util.List;
 public class AddressController {
 
     @Autowired
-    private AddressRepository repository;
+    private AddressService service;
 
     @PostMapping("/save")
     public ResponseEntity<AddressModel> save(@RequestBody AddressModel addressModel){
-        return ResponseEntity.ok(repository.save(addressModel));
+        return ResponseEntity.ok(service.save(addressModel));
     }
 
-    @GetMapping("/selectall")
+    @GetMapping("/getAll")
     public ResponseEntity<List<AddressModel>> selectAll(){
-        return ResponseEntity.ok(repository.findAll());
+        return ResponseEntity.ok(service.findAll());
     }
 }

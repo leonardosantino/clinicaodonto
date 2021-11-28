@@ -8,8 +8,8 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
-@Entity @Setter @Getter
-@Table(name = "patient")
+@Entity
+@Table(name = "patient") @Setter @Getter
 public class PatientModel {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +37,7 @@ public class PatientModel {
 
     // Dentist
     @ManyToOne
-    @JoinColumn(name = "fkDentist", insertable = false, updatable = false) @JsonIgnoreProperties({"pacients"})
+    @JoinColumn(name = "fkDentist", insertable = false, updatable = false) @JsonIgnoreProperties({"patients"})
     private DentistModel dentist;
 
 }
