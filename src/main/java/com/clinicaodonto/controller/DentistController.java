@@ -1,0 +1,29 @@
+package com.clinicaodonto.controller;
+
+import com.clinicaodonto.model.DentistModel;
+import com.clinicaodonto.repository.DentistRepository;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/dentist")
+public class DentistController {
+
+    @Autowired
+    private DentistRepository repository;
+
+    @PostMapping("/save")
+    public ResponseEntity<DentistModel> save(@RequestBody DentistModel dentistModel){
+        return ResponseEntity.ok(repository.save(dentistModel));
+    }
+
+    @GetMapping("/selectall")
+    public ResponseEntity<List<DentistModel>> selectAll(){
+
+        return ResponseEntity.ok( repository.findAll());
+    }
+}
