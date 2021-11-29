@@ -24,10 +24,10 @@ public class DentistModel {
     private String registration;
 
     // Pacients list
-    @OneToMany(mappedBy = "dentist") @JsonIgnoreProperties({"dentist", "addresses"})
+    @OneToMany(mappedBy = "dentist") @JsonIgnoreProperties({"dentist", "addresses","appointments"})
     private List<PatientModel> patients;
 
     // Appointment list
-    @OneToMany(mappedBy = "dentist") @JsonIgnoreProperties({"dentist", "patients"})
+    @OneToMany(mappedBy = "dentist") @JsonIgnoreProperties({"dentist", "patient"})
     private List<AppointmentModel> appointments;
 }

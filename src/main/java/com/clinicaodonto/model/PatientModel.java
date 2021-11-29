@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class PatientModel {
     private String rg;
 
     @Column(nullable = false)
-    private Date registrationDate;
+    private LocalDate registrationDate;
 
     // FK Dentist
     @Column
@@ -37,11 +38,11 @@ public class PatientModel {
 
     // Dentist
     @ManyToOne
-    @JoinColumn(name = "fkDentist", insertable = false, updatable = false) @JsonIgnoreProperties({"patients"})
+    @JoinColumn(name = "fkDentist", insertable = false, updatable = false) @JsonIgnoreProperties({"patients", "appointments"})
     private DentistModel dentist;
 
     // Appointment list
-    @OneToMany(mappedBy = "patient") @JsonIgnoreProperties({"dentist", "patients"})
+    @OneToMany(mappedBy = "patient") @JsonIgnoreProperties({"patient"})
     private List<AppointmentModel> appointments;
 
 }

@@ -48,5 +48,4 @@ public class PatientService {
     public List<PatientModel> findAll(){
         return repository.findAll();
     }
-
 }

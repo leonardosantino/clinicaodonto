@@ -25,7 +25,6 @@ public class DentistController {
     // EDIT
     @PutMapping("/{id}")
     public ResponseEntity<DentistModel> editById(@PathVariable Integer id, @RequestBody DentistModel dentistModel){
-
         return ResponseEntity.ok(service.editById(id, dentistModel));
     }
 
@@ -38,7 +37,7 @@ public class DentistController {
     // GET By ID
     @GetMapping("/{id}")
     public ResponseEntity<Optional<DentistModel>> getById(@PathVariable Integer id){
-        return ResponseEntity.ok().body(service.getById(id));
+        return ResponseEntity.ok(service.getById(id));
     }
 
     // GET ALL

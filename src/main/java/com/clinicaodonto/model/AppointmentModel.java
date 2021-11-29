@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity @Getter @Setter
 @Table(name = "appointment")
@@ -19,7 +20,7 @@ public class AppointmentModel {
     private String description;
 
     @Column(nullable = false)
-    private Date appointmentDate;
+    private LocalDate appointmentDate;
 
     // FK Dentist
     @Column
