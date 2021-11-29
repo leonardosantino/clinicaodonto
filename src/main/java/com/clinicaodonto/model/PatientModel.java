@@ -28,16 +28,20 @@ public class PatientModel {
     private Date registrationDate;
 
     // FK Dentist
-    @Column(nullable = false)
+    @Column
     private Integer fkDentist;
 
     // Addresses list
-    @OneToMany(mappedBy = "patient") @JsonIgnoreProperties({"patient"})
+    @OneToMany(mappedBy = "patient", orphanRemoval = true) @JsonIgnoreProperties({"patient"})
     private List<AddressModel>  addresses;
 
     // Dentist
     @ManyToOne
     @JoinColumn(name = "fkDentist", insertable = false, updatable = false) @JsonIgnoreProperties({"patients"})
     private DentistModel dentist;
+
+    // Appointment list
+    @OneToMany(mappedBy = "patient") @JsonIgnoreProperties({"dentist", "patients"})
+    private List<AppointmentModel> appointments;
 
 }

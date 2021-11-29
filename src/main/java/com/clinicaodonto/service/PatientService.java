@@ -30,8 +30,15 @@ public class PatientService {
             patientEdited.setRg(patientModel.getRg());
         if (patientModel.getRegistrationDate() != null)
             patientEdited.setRegistrationDate(patientModel.getRegistrationDate());
+        if (patientModel.getFkDentist() != null)
+            patientEdited.setFkDentist(patientModel.getFkDentist());
 
         return repository.save(patientEdited);
+    }
+
+    public String deleteById(Integer id){
+        repository.deleteById(id);
+        return id + " Patient deleted !";
     }
 
     public Optional<PatientModel> getById(Integer id){

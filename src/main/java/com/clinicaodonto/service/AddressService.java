@@ -20,5 +20,4 @@ public class AddressService {
     public List<AddressModel> findAll(){
         return repository.findAll();
     }
-
 }

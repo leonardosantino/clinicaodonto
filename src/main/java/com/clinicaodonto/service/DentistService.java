@@ -35,8 +35,6 @@ public class DentistService {
     }
 
     public String deleteById(Integer id){
-
-
         repository.deleteById(id);
         return id + " Dentist deleted !";
     }

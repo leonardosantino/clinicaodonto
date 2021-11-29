@@ -24,6 +24,10 @@ public class DentistModel {
     private String registration;
 
     // Pacients list
-    @OneToMany(mappedBy = "dentist", orphanRemoval=true) @JsonIgnoreProperties({"dentist", "addresses"})
+    @OneToMany(mappedBy = "dentist") @JsonIgnoreProperties({"dentist", "addresses"})
     private List<PatientModel> patients;
+
+    // Appointment list
+    @OneToMany(mappedBy = "dentist") @JsonIgnoreProperties({"dentist", "patients"})
+    private List<AppointmentModel> appointments;
 }
