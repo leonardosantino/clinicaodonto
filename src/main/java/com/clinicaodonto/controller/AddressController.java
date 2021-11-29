@@ -14,12 +14,12 @@ public class AddressController {
     @Autowired
     private AddressService service;
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<AddressModel> save(@RequestBody AddressModel addressModel){
         return ResponseEntity.ok(service.save(addressModel));
     }
 
-    @GetMapping("/getAll")
+    @GetMapping
     public ResponseEntity<List<AddressModel>> selectAll(){
         return ResponseEntity.ok(service.findAll());
     }
