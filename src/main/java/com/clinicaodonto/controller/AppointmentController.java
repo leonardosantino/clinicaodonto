@@ -1,7 +1,6 @@
 package com.clinicaodonto.controller;
 
 import com.clinicaodonto.model.AppointmentModel;
-import com.clinicaodonto.model.DentistModel;
 import com.clinicaodonto.service.AppointementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
