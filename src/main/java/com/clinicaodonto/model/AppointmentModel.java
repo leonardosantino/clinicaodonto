@@ -1,15 +1,15 @@
 package com.clinicaodonto.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.time.LocalDate;
 
-@Entity @Getter @Setter
-@Table(name = "appointment")
+@Entity
+@Table(name = "appointment") @Getter @Setter
 public class AppointmentModel {
 
     @Id
@@ -19,7 +19,7 @@ public class AppointmentModel {
     @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
+    @Column(nullable = false) @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate appointmentDate;
 
     // FK Dentist
@@ -39,5 +39,4 @@ public class AppointmentModel {
     @ManyToOne
     @JoinColumn(name = "fkPatient", insertable = false, updatable = false) @JsonIgnoreProperties({"dentist","addresses", "appointments"})
     private PatientModel patient;
-
 }

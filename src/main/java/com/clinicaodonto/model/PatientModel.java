@@ -1,5 +1,6 @@
 package com.clinicaodonto.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +25,7 @@ public class PatientModel {
     @Column(length = 10, nullable = false)
     private String rg;
 
-    @Column(nullable = false)
+    @Column(nullable = false) @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate registrationDate;
 
     // FK Dentist
@@ -43,5 +44,4 @@ public class PatientModel {
     // Appointment list
     @OneToMany(mappedBy = "patient") @JsonIgnoreProperties({"patient"})
     private List<AppointmentModel> appointments;
-
 }

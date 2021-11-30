@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 @SpringBootTest
@@ -22,8 +23,7 @@ class PatientServiceTest {
         patientModel.setFirstName("leonardo");
         patientModel.setLastName("santino");
         patientModel.setRg("123456789");
-        patientModel.setRegistrationDate(LocalDate.parse("2021-08-05"));
-
+        patientModel.setRegistrationDate(LocalDate.parse("2021-11-30"));
         PatientModel result = service.save(patientModel);
 
         assertArrayEquals(patientModel, result);

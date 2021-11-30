@@ -1,6 +1,5 @@
 package com.clinicaodonto.controller;
 
-import com.clinicaodonto.model.DentistModel;
 import com.clinicaodonto.model.PatientModel;
 import com.clinicaodonto.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;

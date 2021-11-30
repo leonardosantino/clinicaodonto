@@ -29,12 +29,11 @@ public class AddressModel {
     private String state;
 
     // FK Pacient
-    @Column(nullable = false)
+    @Column
     private Integer fkPatient;
 
     // Pacient
     @ManyToOne
     @JoinColumn(name = "fkPatient" , insertable = false, updatable = false) @JsonIgnoreProperties({"dentist", "addresses"})
     private PatientModel patient;
-
 }
